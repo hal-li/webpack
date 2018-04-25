@@ -1,0 +1,23 @@
+// 颜色定义规范
+// ------------------------------
+$white:                             #fff;
+$block:                             #000;
+
+$text-colors: (
+    dark:   #333,
+    light:  #666,
+    gray:   #999,
+);
+$text-dark:                         map_get($text-colors, dark);
+$text-light:                        map_get($text-colors, light);
+$text-gray:                         map_get($text-colors, gray);
+
+// 字体定义规范
+$font-family:                       Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, 微软雅黑, Arial, sans-serif;
+
+$font-size-small:                   12px;
+$font-size-default:                 14px;
+$font-size-large:                   16px;
+$font-size-larger:                  18px;
+$font-size-largest:                 20px;
+
