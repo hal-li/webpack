@@ -14,4 +14,8 @@
 
 <style lang="scss">
     @import "./scss/app.scss";
+    #app {
+        width: 100%;
+        height: 100%;
+    }
 </style>
