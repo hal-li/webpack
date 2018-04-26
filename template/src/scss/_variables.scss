@@ -3,6 +3,7 @@
 $white:                             #fff;
 $block:                             #000;
 
+// 字体颜色
 $text-colors: (
     dark:   #333,
     light:  #666,
@@ -12,12 +13,48 @@ $text-dark:                         map_get($text-colors, dark);
 $text-light:                        map_get($text-colors, light);
 $text-gray:                         map_get($text-colors, gray);
 
+// 描边颜色
+$border-colors: (
+    base:           #e1e1e8,
+    gray:           #d1d1d8,
+    white:          $white
+);
+
+// 背景颜色
+$bg-colors: (
+    base:           #f1f1f4, // base content bg
+    gray:           #f7f7f8, // header footer toolbar bg
+);
+$bg-base:                           map_get($bg-colors, base);
+$bg-gray:                           map_get($bg-colors, gray);
+
 // 字体定义规范
+// ------------------------------
 $font-family:                       Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, 微软雅黑, Arial, sans-serif;
 
-$font-size-small:                   12px;
-$font-size-default:                 14px;
-$font-size-large:                   16px;
-$font-size-larger:                  18px;
-$font-size-largest:                 20px;
+$font-size-small:                   12px !default;
+$font-size-default:                 14px !default;
+$font-size-large:                   16px !default;
+$font-size-larger:                  18px !default;
+$font-size-largest:                 20px !default;
 
+// 视窗效果
+// ------------------------------
+$min-width:                         1180px !default;
+$min-height:                        605px !default;
+
+// 描边定义规范
+// ------------------------------
+$border-base:                       1px solid map_get($border-colors, base);
+$border-gray:                       1px solid map_get($border-colors, gray);
+$border-white:                      1px solid map_get($border-colors, white);
+
+// 前后缀缩写定义规范               xxs(极小 1px)、xs(很小 5px)、sm(小 10px)、''(正常 15px)、
+//--------------------------------  md(中等 20px)、lg(大 30px)、xl(很大 40px)、xxl(极大 50px)
+$directions:                        ( t: top, r: right, b: bottom, l: left, v: vertical, h: horizontal); // 方向缩写
+$border-directions:                 ( top: top, right: right, bottom: bottom, left: left, "": ""); // 方向
+$size-list:                         ( xs: 5px, sm: 10px, '': 15px, md: 20px ); // n-xs: -5px, n-sm: -10px, n: -15px, n-md: -20px
+$back-gauge-list:                   ( m: margin, p: padding );
+
+// 浏览器前缀
+$prefix-list:                       ( -webkit-, -moz-, -ms-, -o- );

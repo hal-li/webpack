@@ -1,0 +1,44 @@
+// 定位
+.fixed {
+    position: fixed;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+[pull-left] {
+    float: left;
+}
+
+[pull-right] {
+    float: right;
+}
+
+// margin padding eg: p-h-sm(左右内边距10px)
+@each $back-gauge-abbr, $back-gauge in $back-gauge-list {
+    // 2种边距 6个方向 尺寸自定义
+    @each $attr, $direction in $directions {
+        // 尺寸根据项目实际情况而定,修改$size-list变量即可
+        @each $size-attr, $size in $size-list {
+            // 判断类名是否需要拼接横杠
+            $line: line($size-attr);
+            // 遍历生成内外边距
+            .#{$back-gauge-abbr}-#{$attr}#{$line}#{$size-attr} {
+                @if $attr == 'v' { // 垂直方向
+                    #{$back-gauge}-top: #{$size};
+                    #{$back-gauge}-bottom: #{$size};
+                } @else if $attr == 'h' { // 水平方向
+                    #{$back-gauge}-left: #{$size};
+                    #{$back-gauge}-right: #{$size};
+                } @else {
+                    #{$back-gauge}-#{$direction}: #{$size};
+                }
+            }
+        }
+    }
+}
