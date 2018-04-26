@@ -53,3 +53,9 @@
     $opacity-ie: $opacity * 100;
     filter: alpha(opacity=$opacity-ie);
  }
+
+@mixin shadow($x, $y, $blur, $color){
+    -webkit-box-shadow: $x $y $blur $color;
+    -moz-box-shadow: $x $y $blur $color;
+    box-shadow: $x $y $blur $color;
+}
