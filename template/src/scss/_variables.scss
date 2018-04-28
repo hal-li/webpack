@@ -18,7 +18,8 @@ $text-gray:                         map_get($text-colors, gray);
 $border-colors: (
     base:           #e1e1e8,
     gray:           #d1d1d8,
-    white:          $white
+    white:          $white,
+    primary:        $primary
 );
 
 // 背景颜色
@@ -49,6 +50,7 @@ $min-height:                        605px !default;
 $border-base:                       1px solid map_get($border-colors, base);
 $border-gray:                       1px solid map_get($border-colors, gray);
 $border-white:                      1px solid map_get($border-colors, white);
+$border-primary:                    1px solid map_get($border-colors, primary);
 
 // 前后缀缩写定义规范               xxs(极小 1px)、xs(很小 5px)、sm(小 10px)、''(正常 15px)、
 //--------------------------------  md(中等 20px)、lg(大 30px)、xl(很大 40px)、xxl(极大 50px)
