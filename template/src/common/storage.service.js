@@ -1,32 +1,30 @@
 /**
  * 缓存数据，页面交互
  * */
-const LocalStorage = function(item){          // 定义一个本地存储的构造函数
-    this.get = function () {                // 获取数据
-        let data = JSON.parse(localStorage.getItem(item));
-        if(!!data) {
-            return data;
-        }else {
-            return JSON.parse(sessionStorage.getItem(item));
-        }
+const LocalStorage = function(item){
+    this.get = () => {
+        return JSON.parse(localStorage.getItem(item));
     };
-    this.set = function (obj) {
+
+    this.set = (obj) => {
         localStorage.setItem(item, JSON.stringify(obj));
     };
-    this.clear = function () {              // 删除数据
+
+    this.clear = () => {
         localStorage.removeItem(item);
     }
 };
 
 const SessionStorage = function (item) {
-    this.get = function () {                // 获取数据
+    this.get = () => {
         return JSON.parse(sessionStorage.getItem(item));
     };
-    this.set = function (obj) {             // 存储数据
-        // console.log(item, JSON.stringify(obj) );
+
+    this.set = (obj) => {
         sessionStorage.setItem(item, JSON.stringify(obj));
     };
-    this.clear = function () {              // 删除数据
+
+    this.clear = () => {
         sessionStorage.removeItem(item);
     }
 };
