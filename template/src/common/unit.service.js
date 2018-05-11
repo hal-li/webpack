@@ -3,7 +3,7 @@
  * @param {object} data 参数
  * @return {string} 序列化参数字符串 eg: key1=value1&key2=value2
  * */
-const transform = (data) => {
+export function serialization(data) {
     let param = function(obj) {
         let query = '';
         let name, value, fullSubName, subName, subValue, innerObj, i;
@@ -36,11 +36,19 @@ const transform = (data) => {
     };
 
     return data instanceof Object && String(data) !== '[object File]' ? param(data) : data;
-};
+}
 
-// 公共方法
-const UnitService = {
-    transform
-};
-
-export default UnitService;
+/**
+ * 参数字符串反序列化 &key=value => key:value
+ * @param {string} param 参数字符串
+ * @return {object} 参数对象
+ * */
+export function deserialize(param) {
+    let obj = {};
+    let reg = /([^?&]+)=([^?&]+)/g;
+    param.replace(reg, function(str, key, value) {
+        obj[ key ] = decodeURIComponent(value);
+        return key + '=' +  value;
+    });
+    return obj;
+}
