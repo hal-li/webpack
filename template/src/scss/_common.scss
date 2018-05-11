@@ -19,6 +19,32 @@
     float: right;
 }
 
+[text-center] {
+    text-align: center;
+}
+
+[text-left] {
+    text-align: left;
+}
+
+[text-right] {
+    text-align: right;
+}
+
+// color
+@each $name, $color in $text-colors {
+    .#{$name} {
+        color: #{$color};
+    }
+}
+
+// background-color
+@each $name, $color in $bg-colors {
+    .bg-#{$name} {
+        background-color: #{$color};
+    }
+}
+
 // margin padding eg: p-h-sm(左右内边距10px)
 @each $back-gauge-abbr, $back-gauge in $back-gauge-list {
     // 2种边距 6个方向 尺寸自定义
@@ -41,4 +67,13 @@
             }
         }
     }
+}
+
+// width & height
+.full-width {
+    width: 100%;
+}
+
+.full-height {
+    height: 100%;
 }

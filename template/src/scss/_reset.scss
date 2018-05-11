@@ -85,3 +85,26 @@ img[src=""],
 img:not([src]){
     opacity:0;
 }
+
+input {
+    outline: none;
+}
+
+button, .button {
+    width: 70px;
+    height: 40px;
+    line-height: 40px;
+    border: $border-base;
+    border-radius: 4px;
+    outline: none;
+    color: $text-light;
+    background-color: $white;
+    font-size: $font-size-default;
+    cursor: pointer;
+
+    &.button-primary {
+        color: $white;
+        background-color: $primary;
+    }
+
+}
