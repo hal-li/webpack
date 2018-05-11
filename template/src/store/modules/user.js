@@ -20,14 +20,14 @@ const user = {
         // 常规登录
         login({ commit }, userInfo) {
             const username = userInfo.username.trim();
-            const password = userInfo.password.trim();
+            const password = userInfo.password;
             return new Promise((resolve, reject) => {
                 login(username, password)
                     .then(response => {
                         const data = response.data;
                         const status = response.status;
                         if(status !== 1) {
-                            return reject();
+                            return reject(response.message);
                         }
                         // 将token保存在全局变量中
                         setToken(data.token);
