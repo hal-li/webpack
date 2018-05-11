@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 import config from '@common/app.config'
-import util from '@common/unit.service'
+import { serialization } from '@common/unit.service'
+import { getToken } from "@/common/user.service"
 
 // 默认配置
 let defaultOptions = {
@@ -9,13 +10,13 @@ let defaultOptions = {
     baseURL: config.server.ip,
 
     // 在向服务器发送前，序列化请求参数 { key: value, key2: value2 } => key=value&key2=value2
-    transformRequest: [ util.transform ],
+    transformRequest: [ serialization ],
 
     // 返回数据传入then/catch之前进行处理
     transformResponse:[
         data => {
-            //依需要对数据进行处理
-            return data;
+            // 依需要对数据进行处理
+            return JSON.parse(data);
         }],
 
     // 请求头配置
@@ -44,6 +45,10 @@ instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlenco
 // 添加请求拦截器
 instance.interceptors.request.use(
     config => {
+        config.params = config.params || {};
+        if(getToken()) {
+            config.params = Object.assign({}, { token: getToken() });
+        }
         return config;
     },
     error => {
