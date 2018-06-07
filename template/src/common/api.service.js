@@ -5,7 +5,7 @@ let baseUrl = config.server.ip;
 
 // 用户认证
 export const auth = {
-    login: '/login/login',                                                      // 登录
-    logout: '/login/logout',                                                    // 登出
-    getUserInfo: '/login/getUserInfo',                                          // 获取用户信息
+    login: baseUrl + '/login/login',                // 登录
+    logout: baseUrl + '/login/logout',              // 登出
+    getUserInfo: baseUrl + '/login/getUserInfo',    // 获取用户信息
 };
